@@ -8,7 +8,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest,arm-latest]
         include:
           - os: ubuntu-latest
             artifact_name: mirua
@@ -22,6 +22,9 @@ jobs:
             artifact_name: mirua
             asset_name: mirua_macos_x86_64
 
+          - os: arm-latest
+            artifact_name: mirua
+            asset_name: mirua_arm_x86_64
     name: Publish for ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
